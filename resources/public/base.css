@@ -1,0 +1,24 @@
+body {
+    font-size: xx-large;
+    font-family: Roboto;
+    font-weight: 100;
+    background: lightgray;
+}
+
+.slide.current {
+    background: white;
+    margin: 12.5vh 12.5vw ;
+    height: 75vh;
+    width: 75vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide .content {
+    text-align: center;
+}
+
+.slide.hidden {
+    display: none;
+}

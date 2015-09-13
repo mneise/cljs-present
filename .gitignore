@@ -1,0 +1,11 @@
+pom.xml
+*jar
+.DS_Store
+/lib/
+/classes/
+/resources/public/js/out/
+/release/
+/target/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
