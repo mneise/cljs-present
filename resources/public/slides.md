@@ -129,19 +129,6 @@
 
 %
 
-### Equality
-
-<textarea class="cljs-code">
-(= 0 0.0)
-</textarea>
-<div class="cljs-run"></div>
-<textarea class="cljs-result"></textarea>
-
-<!-- equality on numbers has javascript (not clojure's) semantic -->
-
-
-%
-
 ### Functions
 
 <textarea class="cljs-code">
