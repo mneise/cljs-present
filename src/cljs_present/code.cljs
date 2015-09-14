@@ -44,13 +44,3 @@
 
 (defn setup [slide-count]
   (setup-listeners slide-count))
-
-
-
-
-
-
-
-
-
-
