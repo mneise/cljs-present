@@ -1,5 +1,5 @@
 body {
-    font-size: xx-large;
+    font-size: 40px;
     font-family: Roboto;
     font-weight: 100;
     background: lightgray;
@@ -16,9 +16,30 @@ body {
 }
 
 .slide .content {
-    text-align: center;
+    width: 80%;
+    margin: 10px auto;
 }
 
 .slide.hidden {
     display: none;
+}
+
+textarea {
+    font-size: xx-large;
+}
+
+.cljs-run button {
+    background: #428BCA;
+    color: #fff;
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    margin: 25px 0px;
+    text-align: center;
+    border: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.CodeMirror {
+    height: 200px;
 }
