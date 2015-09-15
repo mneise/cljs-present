@@ -5,7 +5,9 @@
 %
 
 * Personal background
+* Rationale
 * ClojureScript Syntax
+* Tooling
 * Demos
 * Outro
 
@@ -42,82 +44,59 @@
 
 %
 
-### Clojure
+### What is Clojure
 
+* introduced in 2007 by Rich Hickey
 * Lisp dialect
 * runs on the JVM
-* immutable data structures
+
+%
+
+### Why Clojure rocks
+
+* immutable data structure
+* support for concurrency
 * macros
+* great Java interop
 
 <!-- Clojure: introduced in 2007, Lisp dialect, runs on the JVM -->
 <!-- immutable data structures, macros,  -->
 
 %
 
-### Symbols
+### What is ClojureScript?
 
-<textarea class="cljs-code">
-(= (symbol "foo") 'foo)
-</textarea>
-<div class="cljs-run"></div>
-<textarea class="cljs-result"></textarea>
-
-<!-- symbols are bare words, evaluate to other values, such as functions  -->
-<!-- symbols are bare words, evaluate to other values, such as function  -->
+* compiles Clojure to JavaScript
+* outputs ES3 compatible JavaScript
+* compiler written in Clojure
+* integrates well with Google Closure
 
 %
 
-### Keywords
+### Why ClojureScript?
 
-<textarea class="cljs-code">
-(= (keyword "foo") :foo)
-</textarea>
-<div class="cljs-run"></div>
-<textarea class="cljs-result"></textarea>
-
-<!-- keywords evaluate to themself  -->
-
-%
-
-### Data Structures - List
-
-<textarea class="cljs-code">
-(def my-list '(1 2 3))
-</textarea>
-<div class="cljs-run"></div>
-<textarea class="cljs-result"></textarea>
+* more robust code
+** ECMAScript 3, immutable data structures, advanced optimization
+* same language for back-end and front-end
+** share code
+* great JavaScript interop
+** use existing libraries, JS module support
 
 %
 
-### Data Structures - Vector
-
-<textarea class="cljs-code">
-(def my-vector ["foo" "bar"])
-</textarea>
-<div class="cljs-run"></div>
-<textarea class="cljs-result"></textarea>
+# Finally show me some ClojureScript!
 
 %
 
-### Data Structures - Map
+### Data Structures
 
 <textarea class="cljs-code">
-(def my-map {:firstname "Maria" :lastname "Geller"})
+(def x [2 3 4])
+(conj x 1)
+[x]
 </textarea>
 <div class="cljs-run"></div>
 <textarea class="cljs-result"></textarea>
-
-%
-
-### Data Structures - Set
-
-<textarea class="cljs-code">
-(def my-set #{1 2 2 3})
-</textarea>
-<div class="cljs-run"></div>
-<textarea class="cljs-result"></textarea>
-
-%
 
 ### Equality
 
@@ -142,7 +121,17 @@
 
 %
 
-### JS interop
+### Higher-order Functions
+
+<textarea class="cljs-code">
+(map inc [1 2 3])
+</textarea>
+<div class="cljs-run"></div>
+<textarea class="cljs-result"></textarea>
+
+%
+
+### JS interop - Property access
 
 <textarea class="cljs-code">
 (set! (.. js/document -body -style -backgroundColor) "lightgray")
@@ -152,7 +141,7 @@
 
 %
 
-### JS interop
+### JS interop - Function invocation
 
 <textarea class="cljs-code">
 (.alter js/window "Hello, AkJS")
@@ -162,41 +151,12 @@
 
 %
 
-### Google Closure Tools
+### Tooling
 
-* Google Closure compiler
-* Google Closure library
-
-%
-
-### Google Closure library
-
-* used for Search, Gmail, Maps etc.
-* dependency management
-
-%
-
-### Google Closure compiler
-
-* compiles JavaScript to better JavaScript
-* dead code elimination
-* 3 optimization levels
-
-%
-
-Before optimization:
-```javascript
-function hello (name) {
-    return "Hello, " + name;
-}
-
-console.log(hello("World"));
-```
-
-After optimization:
-```javascript
-console.log("Hello, World")
-```
+* source map support
+* REPLs
+* plugins for live code reloading
+* bootstrapped ClojureScript
 
 %
 
@@ -204,9 +164,11 @@ console.log("Hello, World")
 
 %
 
-* Source Maps
-* REPLs
-* Frameworks
+### In summary
+
+* more robust and simpler code
+* advanced optimization
+* 
 
 %
 
