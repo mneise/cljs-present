@@ -2,10 +2,9 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.128" :classifier "aot"
+                 [org.clojure/clojurescript "1.7.142" :classifier "aot"
                   :exclusion [org.clojure/data.json]]
-                 [org.clojure/data.json "0.2.6" :classifier "aot"]
-                 [markdown-clj "0.9.68"]]
+                 [org.clojure/data.json "0.2.6" :classifier "aot"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-npm "0.6.1"]
             [lein-pprint "1.1.1"]]

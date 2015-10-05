@@ -2,7 +2,7 @@
 
 (b/watch "src"
   {:main 'cljs-present.core
-   :output-to "resources/public/js/out/reveal_cljs.js"
+   :output-to "resources/public/js/out/cljs_present.js"
    :output-dir "resources/public/js/out"
    :asset-path "js/out"
    :pretty-print true

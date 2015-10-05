@@ -1,12 +1,12 @@
 body {
-    font-size: 40px;
+    font-size: 30px;
     font-family: Roboto;
-    font-weight: 100;
+    font-weight: 300;
     background: lightgray;
 }
 
 .slide.current {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     margin: 12.5vh 12.5vw ;
     height: 75vh;
     width: 75vw;
@@ -42,4 +42,10 @@ textarea {
 
 .CodeMirror {
     height: 200px;
+}
+
+img {
+    width: 300px;
+    display: block;
+    margin: 0px auto;
 }

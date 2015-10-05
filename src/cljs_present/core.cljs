@@ -1,29 +1,13 @@
 (ns cljs-present.core
   (:require [goog.events :as events]
             [goog.dom :as dom]
-            [goog.net.XhrIo :as xhr]
-            [markdown.core :refer [md->html]]
             [clojure.string :as str]
             [cljs-present.code :as code])
-  (:require-macros [cljs-present.macros :as macros])
   (:import [goog.events KeyHandler]))
-
 
 (enable-console-print!)
 
 (def idx (atom 0))
-
-(defn slide-pre [idx]
-  (str "<div id=\"slide-" idx "\" class=\"slide\"><div class=\"content\">"))
-
-(defn slide-post []
-  "</div></div>")
-
-(defn slides->html [slides]
-  (let [html (map-indexed (fn [idx s] (str (slide-pre idx)
-                                           (md->html s)
-                                           (slide-post))) slides)]
-    (str/join html)))
 
 (defn next-slide [slide-count]
   (fn [e]
@@ -51,19 +35,14 @@
   (let [doc-kh (KeyHandler. js/document)]
     (events/listen doc-kh "key" (next-slide slide-count))))
 
-(defn create-slides [slides]
-  (let [slides (str/split slides #"%")
-        html (slides->html slides)
-        body (.-body js/document)]
-    (.insertAdjacentHTML body "afterbegin" html)
-    (code/setup (count slides))
-    (hide-all-slides (count slides))
-    (setup-listener (count slides))
+(defn load-slides []
+  (let [slides (dom/getElementsByClass "slide")
+        keys (.keys js/Object slides)]
+    (doseq [k keys]
+      (dom/setProperties (aget slides k) #js {:id (str "slide-" k)}))
+    (code/setup (count keys))
+    (hide-all-slides (count keys))
+    (setup-listener (count keys))
     (dom/setProperties (dom/getElement "slide-0") #js {:class "current slide"})))
 
-(defn load-slides [uri]
-  (xhr/send uri (fn [e]
-                  (let [result (-> e .-target .getResponseText)]
-                    (create-slides result)))))
-
-(load-slides "slides.md")
+(load-slides)
