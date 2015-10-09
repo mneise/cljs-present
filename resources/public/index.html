@@ -9,23 +9,24 @@
         <link rel="stylesheet" type="text/css" href="css/base.css">
     </head>
     <body>
-        <div class="slide">
-            <div class="content">
-                <h1>Hello, World!</h1>
+        <div id="slides">
+            <div class="slide">
+                <div class="content">
+                    <h1>Hello, World!</h1>
+                </div>
             </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <textarea class="cljs-code">
+            <div class="slide">
+                <div class="content">
+                    <textarea class="cljs-code">
 (def x
   [2 3 4])
 (conj x 5)
-                </textarea>
-                <div class="cljs-run"></div>
-                <textarea class="cljs-result"></textarea>
+                    </textarea>
+                    <div class="cljs-run"></div>
+                    <textarea class="cljs-result"></textarea>
+                </div>
             </div>
         </div>
-        
         <script src="js/out/cljs_present.js" type="text/javascript"></script>
     </body>
 </html>
