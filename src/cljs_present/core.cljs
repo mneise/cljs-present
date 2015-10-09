@@ -36,15 +36,15 @@
 
 (defn swiperight [slide-count]
   (fn [e]
-    (change-slide slide-count :right)))
+    (change-slide slide-count :left)))
 
 (defn swipeleft [slide-count]
   (fn [e]
-    (change-slide slide-count :left)))
+    (change-slide slide-count :right)))
 
 (defn hide-all-slides [count]
-  (doseq [i (range count)]
-    (let [slide (dom/getElement (str "slide-" i))]
+  (doseq [k (range count)]
+    (let [slide (dom/getElement (str "slide-" k))]
       (dom/setProperties slide #js {:class "hidden slide"}))))
 
 (defn setup-listeners [slide-count]
@@ -56,9 +56,8 @@
 
 (defn load-slides []
   (let [slides (dom/getElementsByClass "slide")
-        keys (.keys js/Object slides)
-        slide-count (count keys)]
-    (doseq [k keys]
+        slide-count (.-length slides)]
+    (doseq [k (range slide-count)]
       (dom/setProperties (aget slides k) #js {:id (str "slide-" k)}))
     (code/setup slide-count)
     (hide-all-slides slide-count)

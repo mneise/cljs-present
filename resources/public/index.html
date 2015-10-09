@@ -12,18 +12,209 @@
         <div id="slides">
             <div class="slide">
                 <div class="content">
-                    <h1>Hello, World!</h1>
+                    <h1>Intro to ClojureScript</h1>
+                    @maria__geller
                 </div>
             </div>
             <div class="slide">
                 <div class="content">
+                    <ul>
+                        <li>Personal background</li>
+                        <li>Rationale</li>
+                        <li>ClojureScript Syntax</li>
+                        <li>Tooling</li>
+                        <li>Demos</li>
+                        <li>Outro</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <img src="images/liveops.png" alt="LiveOps">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <img src="images/omscs.png" alt="LiveOps">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <img src="images/gsoc.jpg" alt="LiveOps">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <img src="images/cljs.svg" alt="LiveOps">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <blockquote>
+                        <p>Clojure rocks and JavaScript reaches.</p>
+                    </blockquote>
+                    <p><em>Rich Hickey, NYC Clojure meet up 20 July 2011</em></p>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>What is Clojure</h3>
+                    <ul>
+                        <li>introduced in 2007 by Rich Hickey</li>
+                        <li>Lisp dialect</li>
+                        <li>runs on the JVM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Why Clojure rocks</h3>
+                    <ul>
+                        <li>immutable data structures</li>
+                        <li>support for concurrency</li>
+                        <li>macros</li>
+                        <li>great Java interop</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>What is ClojureScript?</h3>
+                    <ul>
+                        <li>compiles Clojure to JavaScript</li>
+                        <li>outputs ES3 compatible JavaScript</li>
+                        <li>compiler written in Clojure</li>
+                        <li>integrates well with Google Closure</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Why ClojureScript?</h3>
+                    <ul>
+                        <li>more robust code
+                            <ul><li>ECMAScript 3, immutable data structures, advanced optimization</li></ul>
+                        </li>
+                        <li>same language for back-end and front-end
+                            <ul><li>share code</li></ul>
+                        </li>
+                        <li>great JavaScript interop
+                            <ul><li>use existing libraries, JS module support</li></ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h2>Finally show me some ClojureScript!</h2>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Data Structures</h3>
                     <textarea class="cljs-code">
-(def x
-  [2 3 4])
-(conj x 5)
+(def x [2 3 4])
+(conj x 1)
+[x]
                     </textarea>
                     <div class="cljs-run"></div>
                     <textarea class="cljs-result"></textarea>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Equality</h3>
+                    <textarea class="cljs-code">
+(= "2" 2)
+                    </textarea>
+                    <div class="cljs-run"></div>
+                    <textarea class="cljs-result"></textarea>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Functions</h3>
+                    <textarea class="cljs-code">
+(defn my-add [x y]
+  (+ x y))
+(my-add 3 4)
+                    </textarea>
+                    <div class="cljs-run"></div>
+                    <textarea class="cljs-result"></textarea>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Higher-order Functions</h3>
+                    <textarea class="cljs-code">
+(map inc [1 2 3])
+                    </textarea>
+                    <div class="cljs-run"></div>
+                    <textarea class="cljs-result"></textarea>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>JS interop - Property access</h3>
+                    <textarea class="cljs-code">
+(set! (.. js/document -body -style
+          -backgroundColor)
+      "tomato")
+                    </textarea>
+                    <div class="cljs-run"></div>
+                    <textarea class="cljs-result"></textarea>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>JS interop - Function invocation</h3>
+                    <textarea class="cljs-code">
+(.alert js/window "Hello, AkJS")
+                    </textarea>
+                    <div class="cljs-run"></div>
+                    <textarea class="cljs-result"></textarea>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Tooling</h3>
+                    <ul>
+                        <li>source map support</li>
+                        <li>REPLs</li>
+                        <li>plugins for live code reloading</li>
+                        <li>bootstrapped ClojureScript</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>Demos</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h3>In summary</h3>
+                    <ul>
+                        <li>more robust and simpler code
+                            <ul>
+                                <li>immutability, macros</li>
+                            </ul>
+                        </li>
+                        <li>advanced optimization through Google Closure</li>
+                        <li>great JavaScript interop</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h1>More info</h1>
+                    <ul>
+                        <li><a href="https://github.com/clojure/clojurescript/wiki">ClojureScript GitHub Wiki</a></li>
+                        <li><a href="http://clojurescriptkoans.com/">ClojureScript Koans</a></li>
+                        <li><a href="https://funcool.github.io/clojurescript-unraveled/">ClojureScript Unraveled</a></li>
+                        <li><a href="http://clojurians.net/">clojurians Slack</a></li>
+                        <li><a href="http://www.purelyfunctional.tv/single-page-application">LispCast Video Tutorials</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
