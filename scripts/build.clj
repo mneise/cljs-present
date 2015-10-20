@@ -10,7 +10,6 @@
      :asset-path "js/out"
      :verbose true
      :pretty-print true
-     :optimizations :whitespace
      :foreign-libs [{:file "resources/public/js/libs/codemirror-5.5/lib/codemirror.js"
                      :provides ["codemirror"]
                      :module-type :commonjs}
