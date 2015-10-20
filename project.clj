@@ -2,9 +2,9 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.143"]]
+                 [org.clojure/clojurescript "1.7.145"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
-  :plugins [[lein-figwheel "0.4.1-SNAPSHOT"]
+  :plugins [[lein-figwheel "0.4.1"]
             [lein-cljsbuild "1.1.0"]]
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
@@ -22,6 +22,9 @@
                                                    :module-type :commonjs}
                                                   {:file "resources/public/js/libs/codemirror-5.5/mode/clojure/clojure.js"
                                                    :provides ["clojure-mod"]
+                                                   :module-type :commonjs}
+                                                  {:file "resources/public/js/libs/hammer.js-2.0.4/hammer.js"
+                                                   :provides ["hammer"]
                                                    :module-type :commonjs}]}}
                        {:id "min"
                         :source-paths ["src"]
@@ -35,6 +38,9 @@
                                                    :module-type :commonjs}
                                                   {:file "resources/public/js/libs/codemirror-5.5/mode/clojure/clojure.js"
                                                    :provides ["clojure-mod"]
+                                                   :module-type :commonjs}
+                                                  {:file "resources/public/js/libs/hammer.js-2.0.4/hammer.js"
+                                                   :provides ["hammer"]
                                                    :module-type :commonjs}]}}]}
   :figwheel {:css-dirs ["resources/public/css"]}
   :target-path "target")
