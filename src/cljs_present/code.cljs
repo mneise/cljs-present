@@ -8,7 +8,6 @@
     (:import [goog.ui Button]
              [goog.events EventType]))
 
-
 ;; create cljs.user
 (set! (.. js/window -cljs -user) #js {})
 
@@ -32,15 +31,22 @@
                  (dom/getElement (str "slide-" idx)))]
     (doseq [slide slides]
       (let [input (dom/getElementByClass "cljs-code" slide)
-            run (dom/getElementByClass "cljs-run" slide)
+            eval (dom/getElementByClass "cljs-eval" slide)
+            compile (dom/getElementByClass "cljs-compile" slide)
             output (dom/getElementByClass "cljs-result" slide)]
-        (when (and input run output)
+        (when (and input output
+                   (or eval compile))
           (let [cm (.fromTextArea js/codemirror input cm-opts)]
-            (.render (Button. "Run") run)
-            (events/listen run EventType.CLICK
-              (fn [e]
-                (cljs/eval-str st (.getValue cm) 'input
-                               {:eval cljs/js-eval} (cb output))))))))))
+            (when eval
+              (.render (Button. "Eval") eval)
+              (events/listen eval EventType.CLICK
+                (fn [e]
+                  (cljs/eval-str st (.getValue cm) 'input
+                                 {:eval cljs/js-eval} (cb output)))))
+            (when compile
+              (.render (Button. "Compile") compile)
+              (events/listen compile EventType.CLICK
+                (fn [e] (cljs/compile-str st (.getValue cm) (cb output)))))))))))
 
 (defn setup [slide-count]
   (setup-listeners slide-count))

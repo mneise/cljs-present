@@ -2,7 +2,7 @@ body {
     font-size: 30px;
     font-family: Roboto;
     font-weight: 300;
-    background: lightgray;
+    /* background: lightgray; */
 }
 
 .slide.current {
@@ -28,7 +28,7 @@ textarea {
     font-size: xx-large;
 }
 
-.cljs-run button {
+button {
     background: #428BCA;
     color: #fff;
     font-size: 20px;
