@@ -4,11 +4,10 @@
 
 (let [start (System/nanoTime)]
   (b/build "src"
-  (b/build "src"
     {:main 'cljs-present.core
-     :output-to "resources/public/js/out/cljs_present.js"
-     :output-dir "resources/public/js/out"
-     :asset-path "js/out"
+     :output-to "resources/public/js/release/cljs_present.js"
+     :output-dir "resources/public/js/release"
+     :asset-path "js/release"
      :verbose true
      :pretty-print true
      :optimizations :whitespace

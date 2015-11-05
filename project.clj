@@ -2,10 +2,10 @@
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.145"]]
+                 [org.clojure/clojurescript "1.7.166"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-figwheel "0.4.1"]
-            [lein-cljsbuild "1.1.0"]]
+            [lein-cljsbuild "1.1.1-SNAPSHOT"]]
   :source-paths ["src" "target/classes"]
   :clean-targets ["out" "release"]
   :cljsbuild {:builds [{:id "dev"
@@ -29,9 +29,10 @@
                        {:id "min"
                         :source-paths ["src"]
                         :compiler {:main cljs-present.core
-                                   :output-to "resources/public/js/out/cljs_present.js"
-                                   :source-map "resources/public/js/out/map.js.map"
-                                   :asset-path "js/out"
+                                   :output-to "resources/public/js/release/cljs_present.js"
+                                   :output-dir "resources/public/js/release"
+                                   :source-map "resources/public/js/release/map.js.map"
+                                   :asset-path "js/release"
                                    :optimizations :whitespace
                                    :foreign-libs [{:file "resources/public/js/libs/codemirror-5.5/lib/codemirror.js"
                                                    :provides ["codemirror"]
